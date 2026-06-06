@@ -2,7 +2,7 @@
 
 > サロン・クリニック・スクール・小規模店舗向けの業務管理 SaaS デモアプリ
 
-[![Next.js](https://img.shields.io/badge/Next.js-14.2-black?logo=nextdotjs)](https://nextjs.org)
+[![Next.js](https://img.shields.io/badge/Next.js-15-black?logo=nextdotjs)](https://nextjs.org)
 [![TypeScript](https://img.shields.io/badge/TypeScript-5.x-blue?logo=typescript)](https://www.typescriptlang.org)
 [![Tailwind CSS](https://img.shields.io/badge/TailwindCSS-3.4-38bdf8?logo=tailwindcss)](https://tailwindcss.com)
 [![Vercel](https://img.shields.io/badge/Deploy-Vercel-black?logo=vercel)](https://vercel.com)
@@ -11,15 +11,13 @@
 
 ## スクリーンショット
 
-> ※ 下記にスクリーンショットを追加してください
-
 | ダッシュボード | 予約管理 | カレンダー |
 |---|---|---|
-| ![dashboard](./docs/screenshots/dashboard.png) | ![reservations](./docs/screenshots/reservations.png) | ![calendar](./docs/screenshots/calendar.png) |
+| ![ダッシュボード](./screen-shot/dashboard.png) | ![予約管理](./screen-shot/reservations.png) | ![カレンダー](./screen-shot/calendar.png) |
 
 | 顧客管理 | スタッフ管理 | 売上レポート |
 |---|---|---|
-| ![customers](./docs/screenshots/customers.png) | ![staff](./docs/screenshots/staff.png) | ![reports](./docs/screenshots/reports.png) |
+| ![顧客管理](./screen-shot/customers.png) | ![スタッフ管理](./screen-shot/staff.png) | ![売上レポート](./screen-shot/reports.png) |
 
 ---
 
