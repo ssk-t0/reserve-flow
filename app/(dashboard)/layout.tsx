@@ -24,6 +24,7 @@ export default function DashboardLayout({ children }: { children: React.ReactNod
   const [sidebarOpen, setSidebarOpen] = useState(false);
 
   useEffect(() => {
+    storage.initializeSampleData();
     const auth = storage.getAuth();
     if (!auth) {
       router.replace("/login");

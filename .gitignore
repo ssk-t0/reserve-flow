@@ -1,6 +1,7 @@
 # Next.js
 .next/
 out/
+dist/
 
 # Node.js
 node_modules/
