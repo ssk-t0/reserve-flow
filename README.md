@@ -13,7 +13,7 @@
 
 | | URL |
 |---|---|
-| 🌐 デモ（Vercel） | https://your-vercel-url.vercel.app |
+| 🌐 デモ（Vercel） | https://reserve-flow-alpha.vercel.app |
 | 📦 GitHub | https://github.com/ssk-t0/reserve-flow |
 
 > **デモアカウント**
