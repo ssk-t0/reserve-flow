@@ -104,7 +104,7 @@
 
 ```bash
 # リポジトリをクローン
-git clone https://github.com/ssk-t0/reserveflow.git
+git clone https://github.com/your-username/reserveflow.git
 cd reserveflow
 
 # 依存パッケージをインストール
