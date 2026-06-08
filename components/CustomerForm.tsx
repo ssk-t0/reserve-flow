@@ -75,7 +75,7 @@ export default function CustomerForm({ initial, onSave, onCancel }: CustomerForm
           value={form.name}
           onChange={(e) => setForm((p) => ({ ...p, name: e.target.value }))}
           placeholder="例：山田 太郎"
-          className={`w-full px-3 py-2 text-sm border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 ${
+          className={`w-full px-3 py-2 text-sm border rounded-lg focus:outline-none focus:ring-2 focus:ring-rose-300 ${
             errors.name ? "border-red-400" : "border-slate-200"
           }`}
         />
@@ -90,7 +90,7 @@ export default function CustomerForm({ initial, onSave, onCancel }: CustomerForm
           value={form.phone}
           onChange={(e) => setForm((p) => ({ ...p, phone: e.target.value }))}
           placeholder="例：080-1234-5678"
-          className="w-full px-3 py-2 text-sm border border-slate-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
+          className="w-full px-3 py-2 text-sm border border-slate-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-rose-300"
         />
       </div>
 
@@ -102,7 +102,7 @@ export default function CustomerForm({ initial, onSave, onCancel }: CustomerForm
           value={form.email}
           onChange={(e) => setForm((p) => ({ ...p, email: e.target.value }))}
           placeholder="例：yamada@example.com"
-          className={`w-full px-3 py-2 text-sm border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 ${
+          className={`w-full px-3 py-2 text-sm border rounded-lg focus:outline-none focus:ring-2 focus:ring-rose-300 ${
             errors.email ? "border-red-400" : "border-slate-200"
           }`}
         />
@@ -122,7 +122,7 @@ export default function CustomerForm({ initial, onSave, onCancel }: CustomerForm
                 onClick={() => toggleTag(tag.value)}
                 className={`px-3 py-1.5 text-sm rounded-full border transition-all ${
                   selected
-                    ? "bg-blue-600 text-white border-blue-600"
+                    ? "bg-rose-500 text-white border-rose-500"
                     : "bg-white text-slate-600 border-slate-200 hover:border-slate-300"
                 }`}
               >
@@ -141,7 +141,7 @@ export default function CustomerForm({ initial, onSave, onCancel }: CustomerForm
           onChange={(e) => setForm((p) => ({ ...p, memo: e.target.value }))}
           rows={3}
           placeholder="アレルギー情報や対応メモなど"
-          className="w-full px-3 py-2 text-sm border border-slate-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 resize-none"
+          className="w-full px-3 py-2 text-sm border border-slate-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-rose-300 resize-none"
         />
       </div>
 
@@ -149,7 +149,7 @@ export default function CustomerForm({ initial, onSave, onCancel }: CustomerForm
       <div className="flex gap-3 pt-2">
         <button
           type="submit"
-          className="flex-1 py-2.5 bg-blue-600 text-white text-sm font-medium rounded-lg hover:bg-blue-700 transition"
+          className="flex-1 py-2.5 bg-rose-500 text-white text-sm font-medium rounded-lg hover:bg-rose-600 transition"
         >
           {initial ? "変更を保存" : "顧客を登録"}
         </button>

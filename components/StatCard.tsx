@@ -18,16 +18,16 @@ export default function StatCard({
   value,
   sub,
   icon: Icon,
-  iconColor = "text-blue-600",
-  iconBg = "bg-blue-50",
+  iconColor = "text-rose-600",
+  iconBg = "bg-rose-50",
   trend,
 }: StatCardProps) {
   return (
-    <div className="bg-white rounded-2xl p-6 shadow-sm border border-slate-100 hover:shadow-md transition-shadow">
+    <div className="bg-white rounded-lg p-5 shadow-sm border border-stone-200 hover:shadow-md transition-shadow">
       <div className="flex items-start justify-between">
         <div className="flex-1 min-w-0">
           <p className="text-sm font-medium text-slate-500 truncate">{title}</p>
-          <p className="mt-2 text-3xl font-bold text-slate-800 tracking-tight">{value}</p>
+          <p className="mt-2 text-2xl sm:text-3xl font-bold text-slate-800 tracking-tight">{value}</p>
           {sub && <p className="mt-1 text-sm text-slate-400">{sub}</p>}
           {trend && (
             <div
@@ -40,7 +40,7 @@ export default function StatCard({
             </div>
           )}
         </div>
-        <div className={`flex-shrink-0 w-12 h-12 rounded-xl flex items-center justify-center ${iconBg}`}>
+        <div className={`flex-shrink-0 w-12 h-12 rounded-lg flex items-center justify-center ${iconBg}`}>
           <Icon size={22} className={iconColor} />
         </div>
       </div>

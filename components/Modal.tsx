@@ -51,7 +51,7 @@ export default function Modal({ isOpen, onClose, title, children, size = "md" }:
 
       {/* モーダル本体 */}
       <div
-        className={`relative w-full ${sizeClasses[size]} bg-white rounded-2xl shadow-2xl flex flex-col max-h-[90vh]`}
+        className={`relative w-full ${sizeClasses[size]} bg-white rounded-lg shadow-2xl flex flex-col max-h-[90vh]`}
       >
         {/* ヘッダー */}
         <div className="flex items-center justify-between px-6 py-4 border-b border-slate-100">

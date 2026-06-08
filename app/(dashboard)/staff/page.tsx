@@ -81,7 +81,7 @@ export default function StaffPage() {
         </div>
         <button
           onClick={() => { setEditTarget(undefined); setShowModal(true); }}
-          className="inline-flex items-center gap-2 px-4 py-2.5 bg-blue-600 text-white text-sm font-medium rounded-xl hover:bg-blue-700 transition shadow-sm"
+          className="inline-flex items-center justify-center gap-2 px-4 py-2.5 bg-rose-500 text-white text-sm font-medium rounded-lg hover:bg-rose-600 transition shadow-sm sm:w-auto w-full"
         >
           <Plus size={16} />
           スタッフを追加
@@ -89,15 +89,15 @@ export default function StaffPage() {
       </div>
 
       {/* フィルター */}
-      <div className="bg-white rounded-2xl border border-slate-100 shadow-sm p-4">
-        <div className="flex flex-wrap items-center gap-3">
+      <div className="bg-white rounded-lg border border-slate-100 shadow-sm p-4">
+        <div className="flex flex-col sm:flex-row sm:flex-wrap sm:items-center gap-3">
           <SearchInput
             value={search}
             onChange={setSearch}
             placeholder="氏名・役職で検索"
-            className="w-56"
+            className="w-full sm:w-56"
           />
-          <div className="flex gap-2">
+          <div className="flex flex-wrap gap-2">
             {(["all", "active", "off", "resigned"] as const).map((s) => (
               <button
                 key={s}
@@ -117,7 +117,7 @@ export default function StaffPage() {
 
       {/* カードグリッド */}
       {filtered.length === 0 ? (
-        <div className="bg-white rounded-2xl border border-slate-100 shadow-sm flex flex-col items-center justify-center py-16">
+        <div className="bg-white rounded-lg border border-slate-100 shadow-sm flex flex-col items-center justify-center py-16">
           <UserCog size={40} className="text-slate-200 mb-3" />
           <p className="text-slate-500 font-medium">スタッフが見つかりません</p>
         </div>
@@ -128,12 +128,12 @@ export default function StaffPage() {
             return (
               <div
                 key={s.id}
-                className="bg-white rounded-2xl border border-slate-100 shadow-sm hover:shadow-md transition-shadow group"
+                className="bg-white rounded-lg border border-slate-100 shadow-sm hover:shadow-md transition-shadow group"
               >
                 <div className="p-5">
                   <div className="flex items-start justify-between mb-4">
                     <div className="flex items-center gap-3">
-                      <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-slate-400 to-slate-600 flex items-center justify-center text-lg font-bold text-white">
+                      <div className="w-12 h-12 rounded-lg bg-gradient-to-br from-slate-400 to-slate-600 flex items-center justify-center text-lg font-bold text-white">
                         {s.name.charAt(0)}
                       </div>
                       <div>
@@ -155,7 +155,7 @@ export default function StaffPage() {
                     </div>
                   </div>
 
-                  <div className="grid grid-cols-2 gap-2 p-3 bg-slate-50 rounded-xl mb-4">
+                  <div className="grid grid-cols-2 gap-2 p-3 bg-slate-50 rounded-lg mb-4">
                     <div className="text-center">
                       <p className="text-xs text-slate-500 mb-0.5">今月の予約</p>
                       <p className="text-lg font-bold text-slate-800">{stats.count}<span className="text-xs font-normal text-slate-500">件</span></p>
@@ -166,7 +166,7 @@ export default function StaffPage() {
                     </div>
                   </div>
 
-                  <div className="flex gap-2 opacity-0 group-hover:opacity-100 transition-opacity">
+                  <div className="flex gap-2 opacity-100 sm:opacity-0 sm:group-hover:opacity-100 transition-opacity">
                     <button
                       onClick={() => setDetailStaff(s)}
                       className="flex-1 py-2 text-xs font-medium text-slate-600 bg-slate-100 rounded-lg hover:bg-slate-200 transition"
@@ -175,7 +175,7 @@ export default function StaffPage() {
                     </button>
                     <button
                       onClick={() => { setEditTarget(s); setShowModal(true); }}
-                      className="p-2 text-slate-400 hover:text-blue-600 hover:bg-blue-50 rounded-lg transition"
+                      className="p-2 text-slate-400 hover:text-rose-600 hover:bg-rose-50 rounded-lg transition"
                       aria-label="編集"
                     >
                       <Pencil size={15} />
@@ -247,23 +247,23 @@ export default function StaffPage() {
       >
         {detailStaff && (
           <div className="space-y-4">
-            <div className="grid grid-cols-2 gap-3">
-              <div className="p-3 bg-blue-50 rounded-xl text-center">
-                <p className="text-xs text-blue-600 mb-0.5">今月の予約数</p>
-                <p className="text-2xl font-bold text-blue-700">{getStaffStats(detailStaff.id).count}件</p>
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
+              <div className="p-3 bg-rose-50 rounded-lg text-center">
+                <p className="text-xs text-rose-600 mb-0.5">今月の予約数</p>
+                <p className="text-2xl font-bold text-rose-700">{getStaffStats(detailStaff.id).count}件</p>
               </div>
-              <div className="p-3 bg-emerald-50 rounded-xl text-center">
+              <div className="p-3 bg-emerald-50 rounded-lg text-center">
                 <p className="text-xs text-emerald-600 mb-0.5">今月の売上</p>
                 <p className="text-xl font-bold text-emerald-700">{formatCurrency(getStaffStats(detailStaff.id).sales)}</p>
               </div>
             </div>
 
             {detailReservations.length === 0 ? (
-              <p className="text-sm text-slate-400 text-center py-8 bg-slate-50 rounded-xl">予約データがありません</p>
+              <p className="text-sm text-slate-400 text-center py-8 bg-slate-50 rounded-lg">予約データがありません</p>
             ) : (
               <div className="space-y-2">
                 {detailReservations.map((r) => (
-                  <div key={r.id} className="flex items-center justify-between p-3 bg-slate-50 rounded-xl">
+                  <div key={r.id} className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-2 p-3 bg-slate-50 rounded-lg">
                     <div>
                       <div className="flex items-center gap-2 mb-0.5">
                         <p className="text-sm font-medium text-slate-700">{r.customerName}</p>

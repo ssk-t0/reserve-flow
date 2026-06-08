@@ -60,7 +60,7 @@ export default function StaffForm({ initial, onSave, onCancel }: StaffFormProps)
           value={form.name}
           onChange={(e) => setForm((p) => ({ ...p, name: e.target.value }))}
           placeholder="例：佐藤 美咲"
-          className={`w-full px-3 py-2 text-sm border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 ${
+          className={`w-full px-3 py-2 text-sm border rounded-lg focus:outline-none focus:ring-2 focus:ring-rose-300 ${
             errors.name ? "border-red-400" : "border-slate-200"
           }`}
         />
@@ -77,7 +77,7 @@ export default function StaffForm({ initial, onSave, onCancel }: StaffFormProps)
           value={form.role}
           onChange={(e) => setForm((p) => ({ ...p, role: e.target.value }))}
           placeholder="例：アドバイザー、マネージャー"
-          className={`w-full px-3 py-2 text-sm border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 ${
+          className={`w-full px-3 py-2 text-sm border rounded-lg focus:outline-none focus:ring-2 focus:ring-rose-300 ${
             errors.role ? "border-red-400" : "border-slate-200"
           }`}
         />
@@ -92,7 +92,7 @@ export default function StaffForm({ initial, onSave, onCancel }: StaffFormProps)
           value={form.email}
           onChange={(e) => setForm((p) => ({ ...p, email: e.target.value }))}
           placeholder="例：sato@example.com"
-          className={`w-full px-3 py-2 text-sm border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 ${
+          className={`w-full px-3 py-2 text-sm border rounded-lg focus:outline-none focus:ring-2 focus:ring-rose-300 ${
             errors.email ? "border-red-400" : "border-slate-200"
           }`}
         />
@@ -107,7 +107,7 @@ export default function StaffForm({ initial, onSave, onCancel }: StaffFormProps)
           value={form.phone}
           onChange={(e) => setForm((p) => ({ ...p, phone: e.target.value }))}
           placeholder="例：090-1234-5678"
-          className="w-full px-3 py-2 text-sm border border-slate-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
+          className="w-full px-3 py-2 text-sm border border-slate-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-rose-300"
         />
       </div>
 
@@ -117,7 +117,7 @@ export default function StaffForm({ initial, onSave, onCancel }: StaffFormProps)
         <select
           value={form.status}
           onChange={(e) => setForm((p) => ({ ...p, status: e.target.value as StaffStatus }))}
-          className="w-full px-3 py-2 text-sm border border-slate-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
+          className="w-full px-3 py-2 text-sm border border-slate-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-rose-300"
         >
           <option value="active">稼働中</option>
           <option value="off">休み</option>
@@ -129,7 +129,7 @@ export default function StaffForm({ initial, onSave, onCancel }: StaffFormProps)
       <div className="flex gap-3 pt-2">
         <button
           type="submit"
-          className="flex-1 py-2.5 bg-blue-600 text-white text-sm font-medium rounded-lg hover:bg-blue-700 transition"
+          className="flex-1 py-2.5 bg-rose-500 text-white text-sm font-medium rounded-lg hover:bg-rose-600 transition"
         >
           {initial ? "変更を保存" : "スタッフを登録"}
         </button>

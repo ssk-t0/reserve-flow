@@ -7,7 +7,7 @@ const reservationConfig: Record<
 > = {
   reserved: {
     label: "予約済み",
-    className: "bg-blue-50 text-blue-700 ring-1 ring-blue-200",
+    className: "bg-rose-50 text-rose-700 ring-1 ring-rose-200",
   },
   visited: {
     label: "来店済み",
@@ -36,7 +36,7 @@ export function ReservationStatusBadge({ status }: { status: ReservationStatus }
 const tagConfig: Record<CustomerTag, { label: string; className: string }> = {
   vip: {
     label: "VIP",
-    className: "bg-violet-50 text-violet-700 ring-1 ring-violet-200",
+    className: "bg-stone-100 text-stone-700 ring-1 ring-stone-200",
   },
   new: {
     label: "新規",

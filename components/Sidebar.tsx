@@ -11,7 +11,7 @@ import {
   BarChart3,
   Settings,
   LogOut,
-  Zap,
+  CalendarCheck2,
 } from "lucide-react";
 import { AuthUser, UserRole } from "@/lib/types";
 import { storage } from "@/lib/storage";
@@ -50,15 +50,15 @@ export default function Sidebar({ user, onClose }: SidebarProps) {
   const visibleItems = NAV_ITEMS.filter((item) => item.roles.includes(user.role));
 
   return (
-    <aside className="flex flex-col h-full bg-slate-900 text-white">
+    <aside className="flex flex-col h-full bg-stone-50 text-slate-800 border-r border-stone-200">
       {/* ロゴ */}
-      <div className="flex items-center gap-3 px-5 py-5 border-b border-slate-700/50">
-        <div className="flex items-center justify-center w-9 h-9 bg-blue-600 rounded-xl">
-          <Zap size={18} className="text-white" />
+      <div className="flex items-center gap-3 px-5 py-5 border-b border-stone-200">
+        <div className="flex items-center justify-center w-9 h-9 bg-rose-100 rounded-lg text-rose-700">
+          <CalendarCheck2 size={18} />
         </div>
         <div>
           <span className="text-lg font-bold tracking-tight">ReserveFlow</span>
-          <p className="text-xs text-slate-400 leading-tight">予約管理システム</p>
+          <p className="text-xs text-stone-500 leading-tight">予約管理システム</p>
         </div>
       </div>
 
@@ -72,10 +72,10 @@ export default function Sidebar({ user, onClose }: SidebarProps) {
               key={item.href}
               href={item.href}
               onClick={onClose}
-              className={`flex items-center gap-3 px-3 py-2.5 rounded-xl text-sm font-medium transition-all ${
+              className={`flex items-center gap-3 px-3 py-2.5 rounded-lg text-sm font-medium transition-all ${
                 isActive
-                  ? "bg-blue-600 text-white shadow-lg shadow-blue-900/30"
-                  : "text-slate-400 hover:text-white hover:bg-slate-800"
+                  ? "bg-white text-rose-700 shadow-sm ring-1 ring-stone-200"
+                  : "text-stone-500 hover:text-slate-800 hover:bg-white"
               }`}
             >
               <Icon size={18} />
@@ -86,21 +86,21 @@ export default function Sidebar({ user, onClose }: SidebarProps) {
       </nav>
 
       {/* ユーザー情報 */}
-      <div className="px-3 py-4 border-t border-slate-700/50">
+      <div className="px-3 py-4 border-t border-stone-200">
         <div className="flex items-center gap-3 px-3 py-2 mb-1">
-          <div className="w-8 h-8 rounded-full bg-blue-600 flex items-center justify-center text-sm font-bold flex-shrink-0">
+          <div className="w-8 h-8 rounded-full bg-rose-100 text-rose-700 flex items-center justify-center text-sm font-bold flex-shrink-0">
             {user.name.charAt(0)}
           </div>
           <div className="flex-1 min-w-0">
-            <p className="text-sm font-medium text-white truncate">{user.name}</p>
-            <p className="text-xs text-slate-400 truncate">
+            <p className="text-sm font-medium text-slate-800 truncate">{user.name}</p>
+            <p className="text-xs text-stone-500 truncate">
               {user.role === "admin" ? "管理者" : "スタッフ"}
             </p>
           </div>
         </div>
         <button
           onClick={handleLogout}
-          className="w-full flex items-center gap-3 px-3 py-2.5 rounded-xl text-sm font-medium text-slate-400 hover:text-white hover:bg-slate-800 transition-all"
+          className="w-full flex items-center gap-3 px-3 py-2.5 rounded-lg text-sm font-medium text-stone-500 hover:text-slate-800 hover:bg-white transition-all"
         >
           <LogOut size={18} />
           <span>ログアウト</span>

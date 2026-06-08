@@ -65,7 +65,7 @@ export default function CustomersPage() {
         </div>
         <button
           onClick={() => { setEditTarget(undefined); setShowModal(true); }}
-          className="inline-flex items-center gap-2 px-4 py-2.5 bg-blue-600 text-white text-sm font-medium rounded-xl hover:bg-blue-700 transition shadow-sm"
+          className="inline-flex items-center justify-center gap-2 px-4 py-2.5 bg-rose-500 text-white text-sm font-medium rounded-lg hover:bg-rose-600 transition shadow-sm sm:w-auto w-full"
         >
           <Plus size={16} />
           顧客を追加
@@ -73,13 +73,13 @@ export default function CustomersPage() {
       </div>
 
       {/* フィルター */}
-      <div className="bg-white rounded-2xl border border-slate-100 shadow-sm p-4">
-        <div className="flex flex-wrap items-center gap-3">
+      <div className="bg-white rounded-lg border border-slate-100 shadow-sm p-4">
+        <div className="flex flex-col sm:flex-row sm:flex-wrap sm:items-center gap-3">
           <SearchInput
             value={search}
             onChange={setSearch}
             placeholder="氏名・メール・電話番号で検索"
-            className="w-64"
+            className="w-full sm:w-64"
           />
           <div className="flex flex-wrap gap-2">
             <button
@@ -110,7 +110,7 @@ export default function CustomersPage() {
       </div>
 
       {/* テーブル */}
-      <div className="bg-white rounded-2xl border border-slate-100 shadow-sm overflow-hidden">
+      <div className="bg-white rounded-lg border border-slate-100 shadow-sm overflow-hidden">
         {filtered.length === 0 ? (
           <div className="flex flex-col items-center justify-center py-16">
             <Users size={40} className="text-slate-200 mb-3" />
@@ -135,7 +135,7 @@ export default function CustomersPage() {
                   <tr key={c.id} className="hover:bg-slate-50/50 transition-colors group">
                     <td className="px-4 py-3.5">
                       <div className="flex items-center gap-3">
-                        <div className="w-9 h-9 rounded-xl bg-gradient-to-br from-blue-400 to-violet-500 flex items-center justify-center text-sm font-bold text-white flex-shrink-0">
+                        <div className="w-9 h-9 rounded-lg bg-gradient-to-br from-rose-300 to-stone-500 flex items-center justify-center text-sm font-bold text-white flex-shrink-0">
                           {c.name.charAt(0)}
                         </div>
                         <div>
@@ -149,7 +149,7 @@ export default function CustomersPage() {
                       <p className="text-xs text-slate-400">{c.email}</p>
                     </td>
                     <td className="px-4 py-3.5 text-center hidden md:table-cell">
-                      <span className="inline-flex items-center justify-center w-8 h-8 rounded-full bg-blue-50 text-blue-700 text-sm font-semibold">
+                      <span className="inline-flex items-center justify-center w-8 h-8 rounded-full bg-rose-50 text-rose-700 text-sm font-semibold">
                         {c.visitCount}
                       </span>
                     </td>
@@ -165,21 +165,21 @@ export default function CustomersPage() {
                       <div className="flex items-center justify-end gap-1">
                         <button
                           onClick={() => setDetailCustomer(c)}
-                          className="p-1.5 rounded-lg text-slate-400 hover:text-slate-600 hover:bg-slate-100 transition opacity-0 group-hover:opacity-100"
+                          className="p-1.5 rounded-lg text-slate-400 hover:text-slate-600 hover:bg-slate-100 transition opacity-100 sm:opacity-0 sm:group-hover:opacity-100"
                           aria-label="詳細"
                         >
                           <ChevronRight size={15} />
                         </button>
                         <button
                           onClick={() => { setEditTarget(c); setShowModal(true); }}
-                          className="p-1.5 rounded-lg text-slate-400 hover:text-blue-600 hover:bg-blue-50 transition opacity-0 group-hover:opacity-100"
+                          className="p-1.5 rounded-lg text-slate-400 hover:text-rose-600 hover:bg-rose-50 transition opacity-100 sm:opacity-0 sm:group-hover:opacity-100"
                           aria-label="編集"
                         >
                           <Pencil size={15} />
                         </button>
                         <button
                           onClick={() => setDeleteTarget(c)}
-                          className="p-1.5 rounded-lg text-slate-400 hover:text-red-600 hover:bg-red-50 transition opacity-0 group-hover:opacity-100"
+                          className="p-1.5 rounded-lg text-slate-400 hover:text-red-600 hover:bg-red-50 transition opacity-100 sm:opacity-0 sm:group-hover:opacity-100"
                           aria-label="削除"
                         >
                           <Trash2 size={15} />
@@ -254,7 +254,7 @@ export default function CustomersPage() {
           <div className="space-y-5">
             {/* プロフィール */}
             <div className="flex items-center gap-4">
-              <div className="w-14 h-14 rounded-2xl bg-gradient-to-br from-blue-400 to-violet-500 flex items-center justify-center text-xl font-bold text-white flex-shrink-0">
+              <div className="w-14 h-14 rounded-lg bg-gradient-to-br from-rose-300 to-stone-500 flex items-center justify-center text-xl font-bold text-white flex-shrink-0">
                 {detailCustomer.name.charAt(0)}
               </div>
               <div>
@@ -270,15 +270,15 @@ export default function CustomersPage() {
             </div>
 
             {/* 連絡先 */}
-            <div className="grid grid-cols-2 gap-3">
-              <div className="flex items-center gap-2.5 p-3 bg-slate-50 rounded-xl">
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
+              <div className="flex items-center gap-2.5 p-3 bg-slate-50 rounded-lg">
                 <Phone size={16} className="text-slate-400" />
                 <div>
                   <p className="text-xs text-slate-400">電話番号</p>
                   <p className="text-sm font-medium text-slate-700">{detailCustomer.phone || "—"}</p>
                 </div>
               </div>
-              <div className="flex items-center gap-2.5 p-3 bg-slate-50 rounded-xl">
+              <div className="flex items-center gap-2.5 p-3 bg-slate-50 rounded-lg">
                 <Mail size={16} className="text-slate-400" />
                 <div>
                   <p className="text-xs text-slate-400">メール</p>
@@ -289,7 +289,7 @@ export default function CustomersPage() {
 
             {/* メモ */}
             {detailCustomer.memo && (
-              <div className="flex items-start gap-2.5 p-3 bg-amber-50 border border-amber-100 rounded-xl">
+              <div className="flex items-start gap-2.5 p-3 bg-amber-50 border border-amber-100 rounded-lg">
                 <FileText size={16} className="text-amber-500 flex-shrink-0 mt-0.5" />
                 <p className="text-sm text-amber-800">{detailCustomer.memo}</p>
               </div>
@@ -301,13 +301,13 @@ export default function CustomersPage() {
                 予約履歴（{detailReservations.length}件）
               </h4>
               {detailReservations.length === 0 ? (
-                <p className="text-sm text-slate-400 text-center py-6 bg-slate-50 rounded-xl">予約履歴がありません</p>
+                <p className="text-sm text-slate-400 text-center py-6 bg-slate-50 rounded-lg">予約履歴がありません</p>
               ) : (
                 <div className="space-y-2 max-h-64 overflow-y-auto">
                   {detailReservations.map((r) => (
                     <div
                       key={r.id}
-                      className="flex items-center justify-between p-3 bg-slate-50 rounded-xl"
+                      className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-2 p-3 bg-slate-50 rounded-lg"
                     >
                       <div>
                         <div className="flex items-center gap-2 mb-0.5">
@@ -318,7 +318,7 @@ export default function CustomersPage() {
                           {new Date(r.dateTime).toLocaleDateString("ja-JP")}　{r.staffName}
                         </p>
                       </div>
-                      <span className="text-sm font-medium text-slate-700">
+                      <span className="text-sm font-medium text-slate-700 sm:text-right">
                         {formatCurrency(r.amount)}
                       </span>
                     </div>
@@ -334,7 +334,7 @@ export default function CustomersPage() {
                   setEditTarget(detailCustomer);
                   setShowModal(true);
                 }}
-                className="flex-1 py-2.5 bg-blue-600 text-white text-sm font-medium rounded-lg hover:bg-blue-700 transition"
+                className="flex-1 py-2.5 bg-rose-500 text-white text-sm font-medium rounded-lg hover:bg-rose-600 transition"
               >
                 編集する
               </button>

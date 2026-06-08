@@ -104,18 +104,18 @@ export default function DashboardPage() {
   return (
     <div className="space-y-6 max-w-screen-xl mx-auto">
       {/* ページヘッダー */}
-      <div className="bg-gradient-to-r from-blue-600 to-blue-700 rounded-2xl p-6 text-white shadow-lg">
+      <div className="bg-white rounded-lg p-5 sm:p-6 text-slate-800 shadow-sm border border-stone-200">
         <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-3">
           <div>
             <h1 className="text-2xl font-bold">ダッシュボード</h1>
-            <p className="text-blue-100 text-sm mt-1">
+            <p className="text-stone-500 text-sm mt-1">
               {now.toLocaleDateString("ja-JP", { year: "numeric", month: "long", day: "numeric", weekday: "long" })}
             </p>
           </div>
           <div className="flex gap-3">
             <Link
               href="/reservations"
-              className="inline-flex items-center gap-1.5 px-4 py-2 bg-white/20 hover:bg-white/30 rounded-xl text-sm font-medium transition"
+              className="inline-flex items-center justify-center gap-1.5 px-4 py-2 bg-rose-500 hover:bg-rose-600 text-white rounded-lg text-sm font-medium transition"
             >
               <CalendarCheck size={16} />
               予約を確認
@@ -125,14 +125,14 @@ export default function DashboardPage() {
       </div>
 
       {/* KPIカード */}
-      <div className="grid grid-cols-2 lg:grid-cols-4 gap-4">
+      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
         <StatCard
           title="本日の予約数"
           value={`${todayRes.length}件`}
           sub={`来店済み ${todayRes.filter((r) => r.status === "visited").length}件`}
           icon={CalendarCheck}
-          iconColor="text-blue-600"
-          iconBg="bg-blue-50"
+          iconColor="text-rose-600"
+          iconBg="bg-rose-50"
         />
         <StatCard
           title={`今月の売上（${formatMonthYear(now.getFullYear(), now.getMonth())}）`}
@@ -146,8 +146,8 @@ export default function DashboardPage() {
           title="登録顧客数"
           value={`${customerCount}名`}
           icon={Users}
-          iconColor="text-violet-600"
-          iconBg="bg-violet-50"
+          iconColor="text-stone-600"
+          iconBg="bg-stone-100"
         />
         <StatCard
           title="稼働スタッフ数"
@@ -161,7 +161,7 @@ export default function DashboardPage() {
       {/* 本日の予約 + 直近予約 */}
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-4">
         {/* 本日の予約一覧 */}
-        <div className="bg-white rounded-2xl shadow-sm border border-slate-100">
+        <div className="bg-white rounded-lg shadow-sm border border-slate-100">
           <div className="flex items-center justify-between px-6 py-4 border-b border-slate-50">
             <h2 className="font-semibold text-slate-800">本日の予約</h2>
             <span className="text-xs text-slate-500 bg-slate-50 px-2.5 py-1 rounded-full">
@@ -201,12 +201,12 @@ export default function DashboardPage() {
         </div>
 
         {/* 直近の予約 */}
-        <div className="bg-white rounded-2xl shadow-sm border border-slate-100">
+        <div className="bg-white rounded-lg shadow-sm border border-slate-100">
           <div className="flex items-center justify-between px-6 py-4 border-b border-slate-50">
             <h2 className="font-semibold text-slate-800">直近の予約</h2>
             <Link
               href="/reservations"
-              className="text-xs text-blue-600 hover:text-blue-700 flex items-center gap-1"
+              className="text-xs text-rose-600 hover:text-rose-700 flex items-center gap-1"
             >
               すべて見る <ArrowRight size={12} />
             </Link>
@@ -241,7 +241,7 @@ export default function DashboardPage() {
       {/* グラフ */}
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-4">
         {/* 月別売上 */}
-        <div className="bg-white rounded-2xl shadow-sm border border-slate-100 p-6">
+        <div className="bg-white rounded-lg shadow-sm border border-slate-100 p-6">
           <h2 className="font-semibold text-slate-800 mb-5">月別売上（直近6ヶ月）</h2>
           {monthlySalesData.length > 0 ? (
             <MonthlySalesChart data={monthlySalesData} />
@@ -251,7 +251,7 @@ export default function DashboardPage() {
         </div>
 
         {/* スタッフ別予約数 */}
-        <div className="bg-white rounded-2xl shadow-sm border border-slate-100 p-6">
+        <div className="bg-white rounded-lg shadow-sm border border-slate-100 p-6">
           <h2 className="font-semibold text-slate-800 mb-5">スタッフ別予約数（今月）</h2>
           {staffData.length > 0 ? (
             <StaffReservationChart data={staffData} />

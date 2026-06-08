@@ -84,7 +84,7 @@ export default function ReservationsPage() {
         </div>
         <button
           onClick={() => { setEditTarget(undefined); setShowModal(true); }}
-          className="inline-flex items-center gap-2 px-4 py-2.5 bg-blue-600 text-white text-sm font-medium rounded-xl hover:bg-blue-700 transition shadow-sm"
+          className="inline-flex items-center justify-center gap-2 px-4 py-2.5 bg-rose-500 text-white text-sm font-medium rounded-lg hover:bg-rose-600 transition shadow-sm sm:w-auto w-full"
         >
           <Plus size={16} />
           予約を追加
@@ -92,25 +92,25 @@ export default function ReservationsPage() {
       </div>
 
       {/* フィルター */}
-      <div className="bg-white rounded-2xl border border-slate-100 shadow-sm p-4">
-        <div className="flex flex-wrap items-center gap-3">
+      <div className="bg-white rounded-lg border border-slate-100 shadow-sm p-4">
+        <div className="flex flex-col sm:flex-row sm:flex-wrap sm:items-center gap-3">
           <Filter size={16} className="text-slate-400 flex-shrink-0" />
           <SearchInput
             value={search}
             onChange={setSearch}
             placeholder="顧客名・サービス名で検索"
-            className="w-56"
+            className="w-full sm:w-56"
           />
           <input
             type="date"
             value={dateFilter}
             onChange={(e) => setDateFilter(e.target.value)}
-            className="px-3 py-2 text-sm border border-slate-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
+            className="w-full sm:w-auto px-3 py-2 text-sm border border-slate-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-rose-300"
           />
           <select
             value={statusFilter}
             onChange={(e) => setStatusFilter(e.target.value as ReservationStatus | "all")}
-            className="px-3 py-2 text-sm border border-slate-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
+            className="w-full sm:w-auto px-3 py-2 text-sm border border-slate-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-rose-300"
           >
             <option value="all">すべてのステータス</option>
             {(Object.keys(RESERVATION_STATUS_LABELS) as ReservationStatus[]).map((s) => (
@@ -120,12 +120,12 @@ export default function ReservationsPage() {
           <select
             value={staffFilter}
             onChange={(e) => setStaffFilter(e.target.value)}
-            className="px-3 py-2 text-sm border border-slate-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
+            className="w-full sm:w-auto px-3 py-2 text-sm border border-slate-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-rose-300"
           >
             <option value="">すべてのスタッフ</option>
             {staffNames.map((n) => <option key={n} value={n}>{n}</option>)}
           </select>
-          <div className="ml-auto">
+          <div className="sm:ml-auto w-full sm:w-auto">
             <CsvExportButton
               filename="reservations.csv"
               headers={["予約ID", "日時", "顧客名", "担当スタッフ", "サービス", "金額", "ステータス", "メモ"]}
@@ -136,7 +136,7 @@ export default function ReservationsPage() {
       </div>
 
       {/* テーブル */}
-      <div className="bg-white rounded-2xl border border-slate-100 shadow-sm overflow-hidden">
+      <div className="bg-white rounded-lg border border-slate-100 shadow-sm overflow-hidden">
         {filtered.length === 0 ? (
           <div className="flex flex-col items-center justify-center py-16">
             <CalendarCheck size={40} className="text-slate-200 mb-3" />
@@ -173,10 +173,10 @@ export default function ReservationsPage() {
                       <ReservationStatusBadge status={r.status} />
                     </td>
                     <td className="px-4 py-3.5">
-                      <div className="flex items-center justify-end gap-1 opacity-0 group-hover:opacity-100 transition-opacity">
+                      <div className="flex items-center justify-end gap-1 opacity-100 sm:opacity-0 sm:group-hover:opacity-100 transition-opacity">
                         <button
                           onClick={() => { setEditTarget(r); setShowModal(true); }}
-                          className="p-1.5 rounded-lg text-slate-400 hover:text-blue-600 hover:bg-blue-50 transition"
+                          className="p-1.5 rounded-lg text-slate-400 hover:text-rose-600 hover:bg-rose-50 transition"
                           aria-label="編集"
                         >
                           <Pencil size={15} />

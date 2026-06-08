@@ -76,7 +76,7 @@ export default function ReservationForm({ initial, onSave, onCancel }: Reservati
           type="datetime-local"
           value={form.dateTime}
           onChange={(e) => setForm((p) => ({ ...p, dateTime: e.target.value }))}
-          className={`w-full px-3 py-2 text-sm border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 ${
+          className={`w-full px-3 py-2 text-sm border rounded-lg focus:outline-none focus:ring-2 focus:ring-rose-300 ${
             errors.dateTime ? "border-red-400" : "border-slate-200"
           }`}
         />
@@ -91,7 +91,7 @@ export default function ReservationForm({ initial, onSave, onCancel }: Reservati
         <select
           value={form.customerId}
           onChange={(e) => setForm((p) => ({ ...p, customerId: e.target.value }))}
-          className={`w-full px-3 py-2 text-sm border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 ${
+          className={`w-full px-3 py-2 text-sm border rounded-lg focus:outline-none focus:ring-2 focus:ring-rose-300 ${
             errors.customerId ? "border-red-400" : "border-slate-200"
           }`}
         >
@@ -113,7 +113,7 @@ export default function ReservationForm({ initial, onSave, onCancel }: Reservati
         <select
           value={form.staffId}
           onChange={(e) => setForm((p) => ({ ...p, staffId: e.target.value }))}
-          className={`w-full px-3 py-2 text-sm border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 ${
+          className={`w-full px-3 py-2 text-sm border rounded-lg focus:outline-none focus:ring-2 focus:ring-rose-300 ${
             errors.staffId ? "border-red-400" : "border-slate-200"
           }`}
         >
@@ -133,7 +133,7 @@ export default function ReservationForm({ initial, onSave, onCancel }: Reservati
         <select
           value={form.serviceName}
           onChange={(e) => handleServiceChange(e.target.value)}
-          className="w-full px-3 py-2 text-sm border border-slate-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
+          className="w-full px-3 py-2 text-sm border border-slate-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-rose-300"
         >
           {SERVICES.map((s) => (
             <option key={s.name} value={s.name}>
@@ -151,7 +151,7 @@ export default function ReservationForm({ initial, onSave, onCancel }: Reservati
           value={form.amount}
           onChange={(e) => setForm((p) => ({ ...p, amount: Number(e.target.value) }))}
           min={0}
-          className={`w-full px-3 py-2 text-sm border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 ${
+          className={`w-full px-3 py-2 text-sm border rounded-lg focus:outline-none focus:ring-2 focus:ring-rose-300 ${
             errors.amount ? "border-red-400" : "border-slate-200"
           }`}
         />
@@ -164,7 +164,7 @@ export default function ReservationForm({ initial, onSave, onCancel }: Reservati
         <select
           value={form.status}
           onChange={(e) => setForm((p) => ({ ...p, status: e.target.value as ReservationStatus }))}
-          className="w-full px-3 py-2 text-sm border border-slate-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
+          className="w-full px-3 py-2 text-sm border border-slate-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-rose-300"
         >
           <option value="reserved">予約済み</option>
           <option value="visited">来店済み</option>
@@ -181,7 +181,7 @@ export default function ReservationForm({ initial, onSave, onCancel }: Reservati
           onChange={(e) => setForm((p) => ({ ...p, memo: e.target.value }))}
           rows={3}
           placeholder="対応メモや注意事項など"
-          className="w-full px-3 py-2 text-sm border border-slate-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 resize-none"
+          className="w-full px-3 py-2 text-sm border border-slate-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-rose-300 resize-none"
         />
       </div>
 
@@ -189,7 +189,7 @@ export default function ReservationForm({ initial, onSave, onCancel }: Reservati
       <div className="flex gap-3 pt-2">
         <button
           type="submit"
-          className="flex-1 py-2.5 bg-blue-600 text-white text-sm font-medium rounded-lg hover:bg-blue-700 transition"
+          className="flex-1 py-2.5 bg-rose-500 text-white text-sm font-medium rounded-lg hover:bg-rose-600 transition"
         >
           {initial ? "変更を保存" : "予約を作成"}
         </button>

@@ -19,7 +19,7 @@ export function MonthlySalesChart({ data }: { data: BarData[] }) {
             <span className="text-xs text-slate-500 w-12 shrink-0 text-right">{item.label}</span>
             <div className="flex-1 h-6 bg-slate-100 rounded-full overflow-hidden">
               <div
-                className="h-full bg-gradient-to-r from-blue-500 to-blue-600 rounded-full transition-all duration-700"
+                className="h-full bg-gradient-to-r from-rose-400 to-rose-500 rounded-full transition-all duration-700"
                 style={{ width: `${pct}%` }}
               />
             </div>
@@ -44,8 +44,8 @@ export function StaffReservationChart({
       {data.map((item, i) => {
         const pct = item.max > 0 ? Math.round((item.count / item.max) * 100) : 0;
         const colors = [
-          "from-violet-500 to-violet-600",
-          "from-blue-500 to-blue-600",
+          "from-stone-500 to-stone-600",
+          "from-rose-400 to-rose-500",
           "from-teal-500 to-teal-600",
           "from-emerald-500 to-emerald-600",
           "from-amber-500 to-amber-600",
@@ -80,9 +80,9 @@ export function ServiceSalesChart({
       {data.map((item, i) => {
         const pct = item.max > 0 ? Math.round((item.amount / item.max) * 100) : 0;
         const colors = [
-          "from-blue-500 to-indigo-600",
+          "from-stone-500 to-stone-600",
           "from-emerald-500 to-teal-600",
-          "from-violet-500 to-purple-600",
+          "from-rose-400 to-stone-500",
           "from-amber-500 to-orange-600",
           "from-rose-500 to-pink-600",
         ];

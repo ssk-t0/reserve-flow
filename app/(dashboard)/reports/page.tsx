@@ -133,7 +133,7 @@ export default function ReportsPage() {
           <h1 className="text-2xl font-bold text-slate-800">売上レポート</h1>
           <p className="text-sm text-slate-500 mt-0.5">売上・予約の集計と分析</p>
         </div>
-        <div className="flex items-center gap-3">
+        <div className="flex flex-col sm:flex-row sm:items-center gap-3">
           <select
             value={`${selectedYear}-${selectedMonth}`}
             onChange={(e) => {
@@ -141,7 +141,7 @@ export default function ReportsPage() {
               setSelectedYear(y);
               setSelectedMonth(m);
             }}
-            className="px-3 py-2 text-sm border border-slate-200 rounded-xl focus:outline-none focus:ring-2 focus:ring-blue-500"
+            className="w-full sm:w-auto px-3 py-2 text-sm border border-slate-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-rose-300"
           >
             {monthOptions.map((o) => (
               <option key={`${o.year}-${o.month}`} value={`${o.year}-${o.month}`}>
@@ -159,8 +159,8 @@ export default function ReportsPage() {
       </div>
 
       {/* KPIカード */}
-      <div className="grid grid-cols-2 lg:grid-cols-4 gap-4">
-        <div className="bg-white rounded-2xl p-5 border border-slate-100 shadow-sm">
+      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
+        <div className="bg-white rounded-lg p-5 border border-slate-100 shadow-sm">
           <p className="text-xs font-medium text-slate-500 mb-1">今月の売上</p>
           <p className="text-2xl font-bold text-slate-800">{formatCurrency(thisTotal)}</p>
           {growthRate !== null && (
@@ -170,17 +170,17 @@ export default function ReportsPage() {
             </div>
           )}
         </div>
-        <div className="bg-white rounded-2xl p-5 border border-slate-100 shadow-sm">
+        <div className="bg-white rounded-lg p-5 border border-slate-100 shadow-sm">
           <p className="text-xs font-medium text-slate-500 mb-1">来店数</p>
           <p className="text-2xl font-bold text-slate-800">{monthRes.length}件</p>
           <p className="text-xs text-slate-400 mt-1">前月：{prevMonthRes.length}件</p>
         </div>
-        <div className="bg-white rounded-2xl p-5 border border-slate-100 shadow-sm">
+        <div className="bg-white rounded-lg p-5 border border-slate-100 shadow-sm">
           <p className="text-xs font-medium text-slate-500 mb-1">予約単価</p>
           <p className="text-2xl font-bold text-slate-800">{formatCurrency(avgAmount)}</p>
           <p className="text-xs text-slate-400 mt-1">1件あたり</p>
         </div>
-        <div className="bg-white rounded-2xl p-5 border border-slate-100 shadow-sm">
+        <div className="bg-white rounded-lg p-5 border border-slate-100 shadow-sm">
           <p className="text-xs font-medium text-slate-500 mb-1">キャンセル率</p>
           <p className="text-2xl font-bold text-slate-800">{cancelRate}%</p>
           <p className="text-xs text-slate-400 mt-1">{cancelCount}件 / {allMonthRes.length}件</p>
@@ -190,9 +190,9 @@ export default function ReportsPage() {
       {/* グラフ */}
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-4">
         {/* 月別売上 */}
-        <div className="bg-white rounded-2xl border border-slate-100 shadow-sm p-6">
+        <div className="bg-white rounded-lg border border-slate-100 shadow-sm p-6">
           <div className="flex items-center gap-2 mb-5">
-            <BarChart3 size={18} className="text-blue-600" />
+            <BarChart3 size={18} className="text-rose-600" />
             <h2 className="font-semibold text-slate-800">月別売上推移（直近6ヶ月）</h2>
           </div>
           {monthlySalesData.every((d) => d.value === 0) ? (
@@ -203,9 +203,9 @@ export default function ReportsPage() {
         </div>
 
         {/* スタッフ別売上ランキング */}
-        <div className="bg-white rounded-2xl border border-slate-100 shadow-sm p-6">
+        <div className="bg-white rounded-lg border border-slate-100 shadow-sm p-6">
           <div className="flex items-center gap-2 mb-5">
-            <BarChart3 size={18} className="text-violet-600" />
+            <BarChart3 size={18} className="text-stone-600" />
             <h2 className="font-semibold text-slate-800">スタッフ別売上ランキング</h2>
           </div>
           {staffSalesData.length === 0 ? (
@@ -229,7 +229,7 @@ export default function ReportsPage() {
                     <span className="text-sm text-slate-600 w-20 truncate shrink-0">{s.name}</span>
                     <div className="flex-1 h-5 bg-slate-100 rounded-full overflow-hidden">
                       <div
-                        className="h-full bg-gradient-to-r from-violet-500 to-purple-600 rounded-full"
+                        className="h-full bg-gradient-to-r from-rose-400 to-stone-500 rounded-full"
                         style={{ width: `${pct > 0 ? (sales / pct) * 100 : 0}%` }}
                       />
                     </div>
@@ -245,7 +245,7 @@ export default function ReportsPage() {
       </div>
 
       {/* サービス別売上 */}
-      <div className="bg-white rounded-2xl border border-slate-100 shadow-sm p-6">
+      <div className="bg-white rounded-lg border border-slate-100 shadow-sm p-6">
         <div className="flex items-center gap-2 mb-5">
           <BarChart3 size={18} className="text-emerald-600" />
           <h2 className="font-semibold text-slate-800">サービス別売上</h2>
@@ -259,7 +259,7 @@ export default function ReportsPage() {
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
             <ServiceSalesChart data={serviceSalesData} />
             {/* サービス別売上テーブル */}
-            <div className="overflow-hidden rounded-xl border border-slate-100">
+            <div className="overflow-hidden rounded-lg border border-slate-100">
               <table className="w-full text-sm">
                 <thead>
                   <tr className="bg-slate-50 border-b border-slate-100">

@@ -59,7 +59,7 @@ export default function CalendarPage() {
         </div>
         <button
           onClick={goToday}
-          className="px-4 py-2 text-sm font-medium text-slate-700 bg-white border border-slate-200 rounded-xl hover:bg-slate-50 transition"
+          className="px-4 py-2 text-sm font-medium text-slate-700 bg-white border border-slate-200 rounded-lg hover:bg-slate-50 transition"
         >
           今日
         </button>
@@ -67,7 +67,7 @@ export default function CalendarPage() {
 
       <div className="flex flex-col lg:flex-row gap-5">
         {/* カレンダー本体 */}
-        <div className="flex-1 bg-white rounded-2xl border border-slate-100 shadow-sm overflow-hidden">
+        <div className="flex-1 bg-white rounded-lg border border-slate-100 shadow-sm overflow-hidden">
           {/* ナビゲーション */}
           <div className="flex items-center justify-between px-6 py-4 border-b border-slate-100">
             <button
@@ -93,7 +93,7 @@ export default function CalendarPage() {
               <div
                 key={w}
                 className={`py-2.5 text-center text-xs font-semibold ${
-                  i === 0 ? "text-red-400" : i === 6 ? "text-blue-400" : "text-slate-500"
+                  i === 0 ? "text-red-400" : i === 6 ? "text-emerald-600" : "text-slate-500"
                 }`}
               >
                 {w}
@@ -105,7 +105,7 @@ export default function CalendarPage() {
           <div className="grid grid-cols-7">
             {calendarDays.map((date, idx) => {
               if (!date) {
-                return <div key={`empty-${idx}`} className="min-h-[80px] sm:min-h-[100px] border-b border-r border-slate-50 bg-slate-50/30" />;
+                return <div key={`empty-${idx}`} className="min-h-[56px] sm:min-h-[100px] border-b border-r border-slate-50 bg-slate-50/30" />;
               }
 
               const dayRes = getReservationsForDate(date);
@@ -119,19 +119,19 @@ export default function CalendarPage() {
                 <div
                   key={date.toISOString()}
                   onClick={() => setSelectedDate(date)}
-                  className={`min-h-[80px] sm:min-h-[100px] p-1.5 border-b border-r border-slate-50 cursor-pointer transition-all hover:bg-blue-50/30 ${
-                    isSelected ? "bg-blue-50 ring-2 ring-inset ring-blue-400" : ""
+                  className={`min-h-[56px] sm:min-h-[100px] p-1 sm:p-1.5 border-b border-r border-slate-50 cursor-pointer transition-all hover:bg-rose-50/30 ${
+                    isSelected ? "bg-rose-50 ring-2 ring-inset ring-rose-300" : ""
                   }`}
                 >
                   <div className="flex items-center justify-center mb-1">
                     <span
-                      className={`w-7 h-7 flex items-center justify-center rounded-full text-sm font-medium ${
+                      className={`w-6 h-6 sm:w-7 sm:h-7 flex items-center justify-center rounded-full text-xs sm:text-sm font-medium ${
                         isToday
-                          ? "bg-blue-600 text-white"
+                          ? "bg-rose-500 text-white"
                           : isSun
                           ? "text-red-400"
                           : isSat
-                          ? "text-blue-400"
+                          ? "text-emerald-600"
                           : "text-slate-700"
                       }`}
                     >
@@ -141,14 +141,14 @@ export default function CalendarPage() {
                   {dayRes.length > 0 && (
                     <div className="space-y-0.5">
                       <div className="text-center">
-                        <span className="inline-flex items-center justify-center w-5 h-5 rounded-full bg-blue-600 text-white text-xs font-bold">
+                        <span className="inline-flex items-center justify-center w-5 h-5 rounded-full bg-rose-500 text-white text-xs font-bold">
                           {dayRes.length}
                         </span>
                       </div>
                       {dayRes.slice(0, 1).map((r) => (
                         <div
                           key={r.id}
-                          className="hidden sm:block text-xs text-slate-600 truncate bg-blue-50 px-1.5 py-0.5 rounded"
+                          className="hidden sm:block text-xs text-slate-600 truncate bg-rose-50 px-1.5 py-0.5 rounded"
                         >
                           {new Date(r.dateTime).toLocaleTimeString("ja-JP", { hour: "2-digit", minute: "2-digit" })} {r.customerName}
                         </div>
@@ -167,7 +167,7 @@ export default function CalendarPage() {
         </div>
 
         {/* 選択日の予約詳細 */}
-        <div className="lg:w-80 bg-white rounded-2xl border border-slate-100 shadow-sm flex flex-col">
+        <div className="lg:w-80 bg-white rounded-lg border border-slate-100 shadow-sm flex flex-col">
           <div className="flex items-center justify-between px-5 py-4 border-b border-slate-100">
             <div>
               <h3 className="font-semibold text-slate-800">
@@ -209,7 +209,7 @@ export default function CalendarPage() {
                       <span className="text-sm font-semibold text-slate-800">{r.customerName}</span>
                       <ReservationStatusBadge status={r.status} />
                     </div>
-                    <p className="text-xs text-blue-600 font-medium mb-1">
+                    <p className="text-xs text-rose-600 font-medium mb-1">
                       {new Date(r.dateTime).toLocaleTimeString("ja-JP", { hour: "2-digit", minute: "2-digit" })}
                     </p>
                     <p className="text-xs text-slate-600">{r.serviceName}</p>

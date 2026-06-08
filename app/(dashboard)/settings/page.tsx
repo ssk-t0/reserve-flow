@@ -47,9 +47,9 @@ export default function SettingsPage() {
 
       <form onSubmit={handleSave} className="space-y-4">
         {/* 店舗情報 */}
-        <div className="bg-white rounded-2xl border border-slate-100 shadow-sm overflow-hidden">
+        <div className="bg-white rounded-lg border border-slate-100 shadow-sm overflow-hidden">
           <div className="flex items-center gap-2 px-6 py-4 border-b border-slate-100">
-            <Store size={18} className="text-blue-600" />
+            <Store size={18} className="text-rose-600" />
             <h2 className="font-semibold text-slate-800">店舗情報</h2>
           </div>
           <div className="p-6 space-y-4">
@@ -60,7 +60,7 @@ export default function SettingsPage() {
                 value={settings.storeName}
                 onChange={(e) => setSettings((p) => p && { ...p, storeName: e.target.value })}
                 placeholder="例：ReserveFlow サンプル店"
-                className="w-full px-4 py-2.5 text-sm border border-slate-200 rounded-xl focus:outline-none focus:ring-2 focus:ring-blue-500"
+                className="w-full px-4 py-2.5 text-sm border border-slate-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-rose-300"
               />
             </div>
             <div>
@@ -70,27 +70,27 @@ export default function SettingsPage() {
                 value={settings.notificationEmail}
                 onChange={(e) => setSettings((p) => p && { ...p, notificationEmail: e.target.value })}
                 placeholder="例：admin@example.com"
-                className="w-full px-4 py-2.5 text-sm border border-slate-200 rounded-xl focus:outline-none focus:ring-2 focus:ring-blue-500"
+                className="w-full px-4 py-2.5 text-sm border border-slate-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-rose-300"
               />
             </div>
           </div>
         </div>
 
         {/* 営業時間 */}
-        <div className="bg-white rounded-2xl border border-slate-100 shadow-sm overflow-hidden">
+        <div className="bg-white rounded-lg border border-slate-100 shadow-sm overflow-hidden">
           <div className="flex items-center gap-2 px-6 py-4 border-b border-slate-100">
-            <Clock size={18} className="text-blue-600" />
+            <Clock size={18} className="text-rose-600" />
             <h2 className="font-semibold text-slate-800">営業時間</h2>
           </div>
           <div className="p-6 space-y-4">
-            <div className="grid grid-cols-2 gap-4">
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
               <div>
                 <label className="block text-sm font-medium text-slate-700 mb-1.5">開始時間</label>
                 <input
                   type="time"
                   value={settings.openTime}
                   onChange={(e) => setSettings((p) => p && { ...p, openTime: e.target.value })}
-                  className="w-full px-4 py-2.5 text-sm border border-slate-200 rounded-xl focus:outline-none focus:ring-2 focus:ring-blue-500"
+                  className="w-full px-4 py-2.5 text-sm border border-slate-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-rose-300"
                 />
               </div>
               <div>
@@ -99,7 +99,7 @@ export default function SettingsPage() {
                   type="time"
                   value={settings.closeTime}
                   onChange={(e) => setSettings((p) => p && { ...p, closeTime: e.target.value })}
-                  className="w-full px-4 py-2.5 text-sm border border-slate-200 rounded-xl focus:outline-none focus:ring-2 focus:ring-blue-500"
+                  className="w-full px-4 py-2.5 text-sm border border-slate-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-rose-300"
                 />
               </div>
             </div>
@@ -107,9 +107,9 @@ export default function SettingsPage() {
         </div>
 
         {/* 定休日 */}
-        <div className="bg-white rounded-2xl border border-slate-100 shadow-sm overflow-hidden">
+        <div className="bg-white rounded-lg border border-slate-100 shadow-sm overflow-hidden">
           <div className="flex items-center gap-2 px-6 py-4 border-b border-slate-100">
-            <Ban size={18} className="text-blue-600" />
+            <Ban size={18} className="text-rose-600" />
             <h2 className="font-semibold text-slate-800">定休日</h2>
           </div>
           <div className="p-6">
@@ -119,7 +119,7 @@ export default function SettingsPage() {
                   key={day}
                   type="button"
                   onClick={() => toggleDay(day)}
-                  className={`w-11 h-11 rounded-xl text-sm font-medium transition-all ${
+                  className={`w-11 h-11 rounded-lg text-sm font-medium transition-all ${
                     settings.closedDays.includes(day)
                       ? "bg-red-500 text-white shadow-sm"
                       : "bg-slate-100 text-slate-600 hover:bg-slate-200"
@@ -136,9 +136,9 @@ export default function SettingsPage() {
         </div>
 
         {/* 予約設定 */}
-        <div className="bg-white rounded-2xl border border-slate-100 shadow-sm overflow-hidden">
+        <div className="bg-white rounded-lg border border-slate-100 shadow-sm overflow-hidden">
           <div className="flex items-center gap-2 px-6 py-4 border-b border-slate-100">
-            <Timer size={18} className="text-blue-600" />
+            <Timer size={18} className="text-rose-600" />
             <h2 className="font-semibold text-slate-800">予約設定</h2>
           </div>
           <div className="p-6 space-y-4">
@@ -151,7 +151,7 @@ export default function SettingsPage() {
                 onChange={(e) =>
                   setSettings((p) => p && { ...p, reservationUnit: Number(e.target.value) })
                 }
-                className="w-full px-4 py-2.5 text-sm border border-slate-200 rounded-xl focus:outline-none focus:ring-2 focus:ring-blue-500"
+                className="w-full px-4 py-2.5 text-sm border border-slate-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-rose-300"
               >
                 {[15, 30, 60, 90, 120].map((n) => (
                   <option key={n} value={n}>
@@ -169,7 +169,7 @@ export default function SettingsPage() {
                 onChange={(e) =>
                   setSettings((p) => p && { ...p, cancellationDeadline: Number(e.target.value) })
                 }
-                className="w-full px-4 py-2.5 text-sm border border-slate-200 rounded-xl focus:outline-none focus:ring-2 focus:ring-blue-500"
+                className="w-full px-4 py-2.5 text-sm border border-slate-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-rose-300"
               >
                 {[12, 24, 48, 72].map((n) => (
                   <option key={n} value={n}>
@@ -185,7 +185,7 @@ export default function SettingsPage() {
         <div className="flex items-center gap-3">
           <button
             type="submit"
-            className="inline-flex items-center gap-2 px-6 py-3 bg-blue-600 text-white text-sm font-medium rounded-xl hover:bg-blue-700 transition shadow-sm"
+          className="inline-flex items-center justify-center gap-2 px-6 py-3 bg-rose-500 text-white text-sm font-medium rounded-lg hover:bg-rose-600 transition shadow-sm sm:w-auto w-full"
           >
             <Save size={16} />
             設定を保存
@@ -200,7 +200,7 @@ export default function SettingsPage() {
       </form>
 
       {/* 注意書き */}
-      <div className="bg-amber-50 border border-amber-100 rounded-2xl p-4">
+      <div className="bg-amber-50 border border-amber-100 rounded-lg p-4">
         <div className="flex items-start gap-3">
           <Settings size={16} className="text-amber-500 mt-0.5 flex-shrink-0" />
           <div>
